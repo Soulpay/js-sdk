@@ -1,17 +1,29 @@
+import OrderModel from '../../Models/OrderModel.js'
 class Order {
   constructor ({
     referenceNum = null,
     billing = null,
+    customer = null,
     payment = null,
     metaData = null
   } = {}) {
     ;(this._referenceNum = referenceNum),
     (this._billing = billing),
     (this._payment = payment),
-    (this._metaData = metaData)
+    (this._metaData = metaData),
+    (this._customer = customer)
   }
 
-  toJson () {}
+  toJson () {
+    const order = this
+    const JsonObject = {}
+    Object.keys(order).map(key => {
+      if(order[key]){
+        JsonObject[OrderModel[key]] = order[key]
+      }
+    })
+    return JsonObject
+  }
 
   get referenceNum () {
     return this._referenceNum
@@ -27,6 +39,14 @@ class Order {
 
   set billing (billing) {
     this._billing = billing
+  }
+
+  get customer () {
+    return this._customer
+  }
+
+  set customer (customer) {
+    this._customer = customer
   }
 
   get payment () {

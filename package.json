@@ -1,4 +1,5 @@
 {
+  "type":"module",
   "name": "babel-webpack",
   "version": "1.0.0",
   "description": "",
@@ -27,5 +28,13 @@
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/soulpaydev/mercury/jslib.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/soulpaydev/mercury/jslib/issues"
+  },
+  "homepage": "https://gitlab.com/soulpaydev/mercury/jslib#readme"
 }

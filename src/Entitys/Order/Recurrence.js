@@ -1,5 +1,6 @@
-import Order from './Order'
-class Transaction extends Order {
+import Order from './Order.js.js'
+import RecurrenceModel from '../../Models/RecurrenceModel.js'
+class Recurrence extends Order {
   constructor ({
     referenceNum = null,
     customer = null,
@@ -7,17 +8,29 @@ class Transaction extends Order {
     shipping = null,
     creditCard = null,
     payment = null,
-    metaData = null
+    metaData = null,
+    recurring = null
   } = {}) {
     super({
       referenceNum: referenceNum,
       billing: billing,
+      customer: customer,
       metaData: metaData,
       payment: payment
     })
-    this._customer = customer
     this._shipping = shipping
     this._creditCard = creditCard
+    this._recurring = recurring
+  }
+  toJson () {
+    const order = this
+    const JsonObject = {}
+    Object.keys(order).map(key => {
+      if (order[key]) {
+        JsonObject[RecurrenceModel[key]] = order[key]
+      }
+    })
+    return JsonObject
   }
 
   get customer () {
@@ -43,4 +56,13 @@ class Transaction extends Order {
   set creditCard (creditCard) {
     this._creditCard = creditCard
   }
+
+  get recurring () {
+    return this._recurring
+  }
+
+  set recurring (recurring) {
+    this._recurring = recurring
+  }
 }
+export default Recurrence
