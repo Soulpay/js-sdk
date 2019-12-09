@@ -1,2 +1,3 @@
-import Order from './Models/BankSlipModel.js'
+import Order from "./Entitys/Order/Order.js";
+
 console.log(Order)

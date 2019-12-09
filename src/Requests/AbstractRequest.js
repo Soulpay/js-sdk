@@ -1,8 +1,13 @@
 class AbstractRequest {
+  constructor (jwt) {
+    this.headers = {}
+    headers['Content-type'] = 'application/json'
+    this.headers.Authorization = 'bearer ' + jwt
+  }
   async post (url, data) {}
-  async get (url, data) {}
-  async put (url, data) {}
-  async delete (url, data) {}
+  async get (url, data,) {}
+  async put (url, data,) {}
+  async delete (url, data,) {}
 }
 
-module.exports = AbstractRequest
+export default AbstractRequest

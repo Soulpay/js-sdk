@@ -1,4 +1,4 @@
-import Order from './Order.js.js'
+import Order from './Order.js'
 import BankSlipModel from '../../Models/BankSlipModel.js'
 class BankSlip extends Order {
   constructor ({

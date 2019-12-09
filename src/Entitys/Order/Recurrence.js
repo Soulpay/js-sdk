@@ -1,4 +1,4 @@
-import Order from './Order.js.js'
+import Order from './Order.js'
 import RecurrenceModel from '../../Models/RecurrenceModel.js'
 class Recurrence extends Order {
   constructor ({

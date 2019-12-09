@@ -1,10 +1,11 @@
-import AbstractRequest from './AbstractRequest'
+import AbstractRequest from './AbstractRequest.js'
 
 class Request extends AbstractRequest {
-  async post (url, data) {}
-  async get (url, data) {}
-  async put (url, data) {}
-  async delete (url, data) {}
+  async post (url, data) {
+  }
+  async get (url, data,) {}
+  async put (url, data,) {}
+  async delete (url, data,) {}
 }
 
-module.exports = Request
+export default Request

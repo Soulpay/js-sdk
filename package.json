@@ -1,5 +1,5 @@
 {
-  "type":"module",
+  "type": "module",
   "name": "babel-webpack",
   "version": "1.0.0",
   "description": "",
@@ -36,5 +36,8 @@
   "bugs": {
     "url": "https://gitlab.com/soulpaydev/mercury/jslib/issues"
   },
-  "homepage": "https://gitlab.com/soulpaydev/mercury/jslib#readme"
+  "homepage": "https://gitlab.com/soulpaydev/mercury/jslib#readme",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
 }

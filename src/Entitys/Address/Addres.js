@@ -6,7 +6,7 @@ class Address {
     city = null,
     district = null,
     state = null,
-    postalcode = null,
+    postalCode = null,
     country = null,
     phone = null,
     email = null
@@ -17,10 +17,14 @@ class Address {
     (this._city = city),
     (this._district = district),
     (this._state = state),
-    (this._postalcode = postalcode),
+    (this._postalCode = postalCode),
     (this._country = country),
     (this._phone = phone),
     (this._email = email)
+  }
+
+  toJson () {
+    throw Error('NOT IMPLEMENTED')
   }
 
   get name () {
@@ -39,6 +43,68 @@ class Address {
     this._address = address
   }
 
-  
+  get address2 () {
+    return this._address2
+  }
+
+  set address2 (address2) {
+    this._address2 = address2
+  }
+
+  get city () {
+    return this._city
+  }
+
+  set city () {
+    this._city
+  }
+
+  get district () {
+    return this._district
+  }  
+
+  set district (district) {
+    this._district = district
+  }
+
+  get state () {
+    return this._state
+  }
+
+  set state (state) {
+    this._state = state
+  }
+
+  get postalCode () {
+    return this._postalCode
+  }
+
+  set postalCode (postalCode) {
+    this._postalCode = postalCode
+  }
+
+  get country () {
+    return this._country
+  }
+
+  set country (country) {
+    this._country = country
+  }
+
+  get phone () {
+    return this._phone
+  }
+
+  set phone (phone) {
+    this._phone = phone
+  }
+
+  get email () {
+    return this._email
+  }
+
+  set email (email) {
+    this._email = email
+  }
 }
 export default Address

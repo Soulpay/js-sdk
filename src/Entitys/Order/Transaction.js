@@ -1,4 +1,4 @@
-import Order from './Order.js.js'
+import Order from './Order.js'
 import TransactionModel from '../../Models/TransactionModel.js'
 class Transaction extends Order {
   constructor ({
