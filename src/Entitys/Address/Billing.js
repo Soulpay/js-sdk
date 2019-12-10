@@ -1,4 +1,4 @@
-import Address from './Addres.js'
+import Address from './Address.js'
 import billingModel from '../../Models/BillingModel.js'
 class Billing extends Address {
   toJson () {

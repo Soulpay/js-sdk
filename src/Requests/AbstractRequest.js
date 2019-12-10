@@ -1,7 +1,7 @@
 class AbstractRequest {
   constructor (jwt) {
     this.headers = {}
-    headers['Content-type'] = 'application/json'
+    this.headers['Content-type'] = 'application/json'
     this.headers.Authorization = 'bearer ' + jwt
   }
   async post (url, data) {}

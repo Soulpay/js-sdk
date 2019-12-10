@@ -1,3 +1,4 @@
+import CreditCardModel from '../../Models/CreditCardModel.js'
 class CreditCard {
   constructor ({
     cardHolderName = null,
@@ -9,6 +10,17 @@ class CreditCard {
     this._number = number
     this._expDate = expDate
     this._cvvNumber = cvvNumber
+  }
+
+  toJson () {
+    const creditCard = this
+    const JsonObject = {}
+    Object.keys(creditCard).map(key => {
+      if(creditCard[key]){
+        JsonObject[CreditCardModel[key]] = creditCard[key]
+      }
+    })
+    return JsonObject
   }
 
   get cardHolderName () {
@@ -25,6 +37,14 @@ class CreditCard {
 
   set number (number) {
     this._number = number
+  }
+
+  get expDate () {
+    return this._expDate
+  }
+
+  set expDate (expDate) {
+    this._expDate = expDate
   }
 
   get cvvNumber () {

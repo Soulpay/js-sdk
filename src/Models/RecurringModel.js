@@ -4,6 +4,6 @@ const recurringModel = {
     _frequency: "frequency",
     _installments: "installments",
     _firstAmount: "firstAmount",
-    _firstAmount: "failureThreshold"
+    _failureThreshold: "failureThreshold"
 }
-export default recurringModel = recurringModel
+export default recurringModel

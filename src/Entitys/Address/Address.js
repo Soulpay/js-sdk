@@ -55,8 +55,8 @@ class Address {
     return this._city
   }
 
-  set city () {
-    this._city
+  set city (city) {
+    this._city = city
   }
 
   get district () {

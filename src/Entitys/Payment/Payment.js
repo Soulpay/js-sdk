@@ -42,7 +42,7 @@ class Payment {
   }
 
   set creditInstallment (creditInstallment) {
-    this._currencyCode = creditInstallment
+    this._creditInstallment = creditInstallment
   }
 }
 export default Payment

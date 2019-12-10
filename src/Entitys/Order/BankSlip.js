@@ -23,10 +23,11 @@ class BankSlip extends Order {
     const order = this
     const JsonObject = {}
     Object.keys(order).map(key => {
-      if(oder[key]){
+      if(order[key]){
         JsonObject[BankSlipModel[key]] = order[key]
       }
     })
+    return JsonObject
   }
 
   get bankSlip () {
@@ -37,4 +38,4 @@ class BankSlip extends Order {
     this._bankSlip = bankSlip
   }
 }
-export default BankSlipModel
+export default BankSlip

@@ -1,4 +1,4 @@
-import Address from './Addres.js'
+import Address from './Address.js'
 import ShippingModel from '../../Models/ShippingModel.js'
 class Shipping extends Address {
   toJson () {

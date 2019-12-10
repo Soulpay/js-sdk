@@ -7,7 +7,7 @@ const customerModel = {
   _taxId: 'taxId',
   _phone1: 'phone1',
   _phone2: 'phone2',
-  _createdAt: 'createAt',
+  _createdAt: 'createdAt',
   _new: 'new',
   _vip: 'vip'
 }
