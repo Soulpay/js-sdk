@@ -1,12 +1,12 @@
-import {User, Request} from '../src/index.js'
+import {User, UserRequest} from '../src/index.js'
 
 const user = new User()
-user.email = ''
-user.password = ''
-user.hash = ''
+user.email = 'testedev@dev.com'
+user.password = 'testeDev'
+user.hash = '2b1ba7b7a8ce5c1a003935625bf40047'
 
-const request = new Request()
-request.post('https://dev-api.portalsoulpay.com.br/api/v1/auth/login',user.toJson()).then((response) => {
+const userRequest = new UserRequest()
+userRequest.userLoginDevelopment(user).then((response) => {
     console.log(response.data)
 }).catch((err) => {
     console.log(err.response.data)

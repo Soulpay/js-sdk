@@ -4,7 +4,7 @@ import {
   BankSlip,
   BankSlipPayment,
   Payment,
-  Request
+  OrderRequest
 } from '../src/index.js'
 
 const customer = new Customer()
@@ -32,13 +32,13 @@ payment.chargeTotal = 1
 payment.currencyCode = 'BRL'
 
 const bankSlip = new BankSlip()
-bankSlip.customer = customer.toJson()
-bankSlip.billing = billing.toJson()
-bankSlip.bankSlip = bankSlipPayment.toJson()
-bankSlip.payment = payment.toJson()
+bankSlip.customer = customer
+bankSlip.billing = billing
+bankSlip.bankSlip = bankSlipPayment
+bankSlip.payment = payment
 
-const request = new Request('')
-request.post('https://dev-api.portalsoulpay.com.br/api/v1/bankSlip',bankSlip.toJson()).then((response) => {
+const orderRequest = new OrderRequest('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3NjA3Mzc2MiwiZXhwIjoxNTc4NjY1NzYyfQ.VjQCmYVwvvQjUEHK-wEZxwlcDQggBicssSfPmtuEawc')
+orderRequest.bankSlipDevelopment(bankSlip).then((response) => {
     console.log(response.data)
 }).catch((err)=>{
     console.error(err.response.data)

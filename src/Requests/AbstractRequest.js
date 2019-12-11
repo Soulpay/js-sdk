@@ -5,9 +5,9 @@ class AbstractRequest {
     this.headers.Authorization = 'bearer ' + jwt
   }
   async post (url, data) {}
-  async get (url, data,) {}
-  async put (url, data,) {}
-  async delete (url, data,) {}
+  async get (url) {}
+  async put (url, data) {}
+  async delete (url) {}
 }
 
 export default AbstractRequest

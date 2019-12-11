@@ -6,7 +6,7 @@ import {
   Payment,
   CreditInstallment,
   Transaction,
-  Request
+  OrderRequest
 } from '../src/index.js'
 const customer = new Customer()
 customer.id = 1
@@ -58,21 +58,21 @@ creditInstallment.chargeInterest = 'N'
 const payment = new Payment()
 payment.chargeTotal = 20.00
 payment.currencyCode = "BRL"
-payment.creditInstallment = creditInstallment.toJson()
+payment.creditInstallment = creditInstallment
 
 const transaction = new Transaction()
 transaction.referenceNum = "aaaa"
 transaction.metaData = {
     pedrinho: 'gostoso'
 }
-transaction.customer = customer.toJson()
-transaction.billing = billing.toJson()
-transaction.shipping = shipping.toJson()
-transaction.creditCard = creditCard.toJson()
-transaction.payment = payment.toJson()
+transaction.customer = customer
+transaction.billing = billing
+transaction.shipping = shipping
+transaction.creditCard = creditCard
+transaction.payment = payment
 
-const request = new Request('')
-request.post('https://dev-api.portalsoulpay.com.br/api/v1/transaction',transaction.toJson()).then((response) => {
+const orderRequest = new OrderRequest()
+orderRequest.transactionDevelopment(transaction).then((response) => {
     console.log(response.data)
 }).catch((err)=>{
     console.error(err.response.data)

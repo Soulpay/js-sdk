@@ -35,7 +35,7 @@ class BankSlip extends Order {
   }
 
   set bankSlip (bankSlip) {
-    this._bankSlip = bankSlip
+    this._bankSlip = bankSlip.toJson()
   }
 }
 export default BankSlip

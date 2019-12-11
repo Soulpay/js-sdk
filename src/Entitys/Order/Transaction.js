@@ -37,7 +37,7 @@ class Transaction extends Order {
   }
 
   set shipping (shipping) {
-    this._shipping = shipping
+    this._shipping = shipping.toJson()
   }
 
   get creditCard () {
@@ -45,7 +45,7 @@ class Transaction extends Order {
   }
 
   set creditCard (creditCard) {
-    this._creditCard = creditCard
+    this._creditCard = creditCard.toJson()
   }
 }
 export default Transaction

@@ -6,7 +6,7 @@ import {
   Payment,
   Recurrence,
   Recurring,
-  Request
+  OrderRequest
 } from '../src/index.js'
 
 const customer = new Customer()
@@ -69,19 +69,18 @@ recurrence.referenceNum = 'aaaa'
 recurrence.metaData = {
   pedrinho: 'gostoso'
 }
-recurrence.customer = customer.toJson()
-recurrence.billing = billing.toJson()
-recurrence.shipping = shipping.toJson()
-recurrence.creditCard = creditCard.toJson()
-recurrence.payment = payment.toJson()
-recurrence.recurring = recurring.toJson()
-const request = new Request(
+recurrence.customer = customer
+recurrence.billing = billing
+recurrence.shipping = shipping
+recurrence.creditCard = creditCard
+recurrence.payment = payment
+recurrence.recurring = recurring
+
+const orderRequest = new OrderRequest(
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3NjA3Mzc2MiwiZXhwIjoxNTc4NjY1NzYyfQ.VjQCmYVwvvQjUEHK-wEZxwlcDQggBicssSfPmtuEawc'
 )
-request
-  .post(
-    'https://dev-api.portalsoulpay.com.br/api/v1/recurrence',
-    recurrence.toJson()
-  )
+orderRequest
+  .recurrenceDevelopment(recurrence)
   .then(response => {
     console.log(response.data)
   })

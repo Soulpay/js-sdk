@@ -38,7 +38,7 @@ class Order {
   }
 
   set billing (billing) {
-    this._billing = billing
+    this._billing = billing.toJson()
   }
 
   get customer () {
@@ -46,7 +46,7 @@ class Order {
   }
 
   set customer (customer) {
-    this._customer = customer
+    this._customer = customer.toJson()
   }
 
   get payment () {
@@ -54,7 +54,7 @@ class Order {
   }
 
   set payment (payment) {
-    this._payment = payment
+    this._payment = payment.toJson()
   }
 
   get metaData () {

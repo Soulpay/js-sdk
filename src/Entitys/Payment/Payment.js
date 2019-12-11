@@ -42,7 +42,7 @@ class Payment {
   }
 
   set creditInstallment (creditInstallment) {
-    this._creditInstallment = creditInstallment
+    this._creditInstallment = creditInstallment.toJson()
   }
 }
 export default Payment

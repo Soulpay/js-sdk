@@ -33,20 +33,12 @@ class Recurrence extends Order {
     return JsonObject
   }
 
-  get customer () {
-    return this._customer
-  }
-
-  set customer (customer) {
-    this._customer = customer
-  }
-
   get shipping () {
     return this._shipping
   }
 
   set shipping (shipping) {
-    this._shipping = shipping
+    this._shipping = shipping.toJson()
   }
 
   get creditCard () {
@@ -54,7 +46,7 @@ class Recurrence extends Order {
   }
 
   set creditCard (creditCard) {
-    this._creditCard = creditCard
+    this._creditCard = creditCard.toJson()
   }
 
   get recurring () {
@@ -62,7 +54,7 @@ class Recurrence extends Order {
   }
 
   set recurring (recurring) {
-    this._recurring = recurring
+    this._recurring = recurring.toJson()
   }
 }
 export default Recurrence

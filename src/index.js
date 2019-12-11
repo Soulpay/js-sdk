@@ -1,4 +1,5 @@
-import Request from './Requests/Request.js'
+import OrderRequest from './Requests/OrderRequest.js'
+import UserRequest from './Requests/UserRequest.js'
 import Recurrence from './Entitys/Order/Recurrence.js'
 import Recurring from './Entitys/Recurring/Recurring.js'
 import Transaction from './Entitys/Order/Transaction.js'
@@ -14,7 +15,8 @@ import RefreshToken from './Entitys/User/RefreshToken.js'
 import User from './Entitys/User/User.js'
 
 export {
-  Request,
+  OrderRequest,
+  UserRequest,
   Recurrence,
   Recurring,
   RefreshToken,
