@@ -1,44 +1,34 @@
 {
-  "type": "module",
-  "name": "babel-webpack",
+  "name": "soulpay-sdk",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --open",
-    "build": "webpack"
+  "type": "module",
+  "description": "A sdk for mercury api",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/register": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "eslint": "^6.7.2",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "html-webpack-plugin": "^3.2.0",
-    "script-ext-html-webpack-plugin": "^2.1.3",
-    "webpack": "^4.28.4",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/soulpaydev/mercury/jslib.git"
+    "url": "git+ssh://git@github.com/Soulpay/JsSDK.git"
   },
+  "keywords": [
+    "sdk",
+    "js",
+    "api",
+    "soulpay",
+    "soulpay api",
+    "api sdk"
+  ],
+  "author": "Victor Ribero de Lima",
+  "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/soulpaydev/mercury/jslib/issues"
+    "url": "https://github.com/Soulpay/JsSDK/issues"
   },
-  "homepage": "https://gitlab.com/soulpaydev/mercury/jslib#readme",
+  "homepage": "https://github.com/Soulpay/JsSDK#readme",
   "dependencies": {
-    "axios": "^0.19.0",
-    "moment": "^2.24.0"
+    "axios": "^0.19.1"
   }
 }

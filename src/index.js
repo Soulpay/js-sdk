@@ -13,6 +13,7 @@ import Customer from './Entitys/Customer/Customer.js'
 import BankSlipPayment from './Entitys/PaymentMethod/BankSlip.js'
 import RefreshToken from './Entitys/User/RefreshToken.js'
 import User from './Entitys/User/User.js'
+import Environment from './Enum/Environment.js'
 
 export {
   OrderRequest,
@@ -29,5 +30,6 @@ export {
   Payment,
   CreditInstallment,
   Customer,
-  User
+  User,
+  Environment
 }

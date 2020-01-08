@@ -1,44 +1,32 @@
 import Request from './Request.js'
 
+let url
 class UserRequest extends Request {
-  async userLoginDevelopment (user) {
+  constructor(environment){
+    super(null)
+    if(environment){
+      url = 'https://api.portalsoulpay.com.br/api/v1/'
+    }else{
+      url = 'https://dev-api.portalsoulpay.com.br/api/v1/'
+    }
+  }
+  async userLogin (user) {
     return super.post(
-      'https://dev-api.portalsoulpay.com.br/api/v1/auth/login',
+      url+'auth/login',
       user.toJson()
     )
   }
 
-  async userLoginProduction (user) {
+  async refreshToken(refreshToken) {
     return super.post(
-      'https://api.portalsoulpay.com.br/api/v1/auth/login',
-      user.toJson()
-    )
-  }
-
-  async refreshTokenDevelopment (refreshToken) {
-    return super.post(
-      'https://dev-api.portalsoulpay.com.br/api/v1/auth/refresh-token',
+      url+'auth/refresh-token',
       refreshToken.toJson()
     )
   }
 
-  async refreshTokenProduction (refreshToken) {
+  async newRefreshToken (refreshToken) {
     return super.post(
-      'https://api.portalsoulpay.com.br/api/v1/auth/refresh-token',
-      refreshToken.toJson()
-    )
-  }
-
-  async newRefreshTokenDevelopment (refreshToken) {
-    return super.post(
-      'https://dev-api.portalsoulpay.com.br/api/v1/auth/new-refresh-token',
-      refreshToken.toJson()
-    )
-  }
-
-  async newRefreshTokenProduction (refreshToken) {
-    return super.post(
-      'https://api.portalsoulpay.com.br/api/v1/auth/new-refresh-token',
+      url+'auth/new-refresh-token',
       refreshToken.toJson()
     )
   }

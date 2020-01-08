@@ -1,93 +1,58 @@
 import Request from './Request.js'
+let url
 
 class OrderRequest extends Request {
-  async bankSlipProduction (bankSlip) {
+  constructor(jwt,environment){
+    super(jwt)
+    if(environment){
+      url = 'https://api.portalsoulpay.com.br/api/v1/'
+    }else{
+      url = 'https://dev-api.portalsoulpay.com.br/api/v1/'
+    }
+  }
+
+  async bankSlip (bankSlip) {
     return super.post(
-      'https://api.portalsoulpay.com.br/api/v1/bankSlip',
+      url+'bankSlip',
       bankSlip.toJson()
     )
   }
 
-  async bankSlipDevelopment (bankSlip) {
-    return super.post(
-      'https://dev-api.portalsoulpay.com.br/api/v1/bankSlip',
-      bankSlip.toJson()
-    )
-  }
-
-  async getBankSlipDevelopment (orderId) {
+  async getBankSlip (orderId) {
     return super.get(
-      `https://dev-api.portalsoulpay.com.br/api/v1/bankSlip/${orderId}`
+      url+`bankSlip/${orderId}`
     )
   }
 
-  async getBankSlipProduction (orderId) {
-    return super.get(
-      `https://api.portalsoulpay.com.br/api/v1/bankSlip/${orderId}`
-    )
-  }
-
-  async recurrenceProduction (recurrence) {
+  async recurrence (recurrence) {
     return super.post(
-      'https://api.portalsoulpay.com.br/api/v1/recurrence',
+      url+'recurrence',
       recurrence.toJson()
     )
   }
 
-  async recurrenceDevelopment (recurrence) {
-    return super.post(
-      'https://dev-api.portalsoulpay.com.br/api/v1/recurrence',
-      recurrence.toJson()
-    )
-  }
-
-  async getRecurrenceDevelopment (orderId) {
+  async getRecurrence (orderId) {
     return super.get(
-      `https://dev-api.portalsoulpay.com.br/api/v1/recurrence/${orderId}`
+      url+`recurrence/${orderId}`
     )
   }
 
-  async getRecurrenceProduction (orderId) {
-    return super.get(
-      `https://api.portalsoulpay.com.br/api/v1/recurrence/${orderId}`
-    )
-  }
-
-  async cancelRecurrenceDevelopment (orderId) {
+  async cancelRecurrence (orderId) {
     return super.delete(
-      `https://dev-api.portalsoulpay.com.br/api/v1/recurrence/${orderId}`
+      url+`recurrence/${orderId}`
     )
   }
 
-  async cancelRecurrenceProduction (orderId) {
-    return super.delete(
-      `https://api.portalsoulpay.com.br/api/v1/recurrence/${orderId}`
-    )
-  }
-
-  async transactionProduction (transaction) {
+  async transaction (transaction) {
     return super.post(
-      'https://api.portalsoulpay.com.br/api/v1/transaction',
+      url+'transaction',
       transaction.toJson()
     )
   }
 
-  async transactionDevelopment (transaction) {
-    return super.post(
-      'https://dev-api.portalsoulpay.com.br/api/v1/transaction',
-      transaction.toJson()
-    )
-  }
-
-  async getTransactionDevelopment (orderId) {
+  async getTransaction (orderId) {
     return super.get(
-      `https://dev-api.portalsoulpay.com.br/api/v1/transaction/${orderId}`
-    )
-  }
-
-  async getTransactionProduction (orderId) {
-    return super.get(
-      `https://api.portalsoulpay.com.br/api/v1/transaction/${orderId}`
+      url+`transaction/${orderId}`
     )
   }
 }
