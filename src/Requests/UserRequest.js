@@ -2,8 +2,8 @@ import Request from './Request.js'
 
 let url
 class UserRequest extends Request {
-  constructor(environment){
-    super(null)
+  constructor(environment,jwt){
+    super(jwt)
     if(environment){
       url = 'https://api.portalsoulpay.com.br/api/v1/'
     }else{

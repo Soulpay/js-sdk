@@ -2,7 +2,7 @@ import Request from './Request.js'
 let url
 
 class OrderRequest extends Request {
-  constructor(jwt,environment){
+  constructor(environment,jwt){
     super(jwt)
     if(environment){
       url = 'https://api.portalsoulpay.com.br/api/v1/'
