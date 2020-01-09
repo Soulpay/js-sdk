@@ -3,23 +3,27 @@
 
 ## Introdução
 
-Este documento explica realizar a integração com a API de E-Commerce
- para começar a realizar transações.
-
-Este documento descreve o **SDK
- em Javascript** utilizado para nossa API.
+Este documento explica como realizar a integração com a API de E-Commerce
+utilizando nosso **SDK em Javascript** para começar a realizar transações.
 
 ## Requerimentos
 
 - Node >= 13.2.0
 
+## Instalação com NPM
+
+```BASH
+
+npm install soulpay-sdk
+
+```
 
 ## Vamos Começar
 
 Para utilizar este SDK
  recomenda-se leitura da [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html)
  
-A API é capaz de realizar transações de **cartão de crédito**, geração de **boletos** e **recorrências** diárias, semanais, e mensais.
+A API é capaz de realizar transações de **cartão de crédito**, geração de **boletos** e **recorrências** diárias, semanais, mensais ou outras escolhas de período.
 
 ## Ambientes
 
@@ -28,21 +32,22 @@ Para fazer a escolha de qual **Environment** utilizar basta declará-lo no const
 ```Javascript
 // Request para o ambiente de desenvolvimento
 const userRequest = new UserRequest(
-  Environment.DEVELOPMENT,
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3NjA3Mzc2MiwiZXhwIjoxNTc4NjY1NzYyfQ.VjQCmYVwvvQjUEHK-wEZxwlcDQggBicssSfPmtuEawc'
+  Environment.DEVELOPMENT, 'Sua chave JWT aqui'
 )
 
 // Request para o ambiente de produção
 const orderRequest = new OrderRequest(
-  Environment.PRODUCTION,
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3NjA3Mzc2MiwiZXhwIjoxNTc4NjY1NzYyfQ.VjQCmYVwvvQjUEHK-wEZxwlcDQggBicssSfPmtuEawc'
+  Environment.PRODUCTION, 'Sua chave JWT aqui'
 )
 
 ```
 
 ## Realizar Login
 
-Para realizar o login é necessário criar um objeto **User** e preenche-lo com os seguintes dados **Email**, **Passowrd** e **Hash**. Para enviar a request é necessário instanciar a classe **UserRequest** e utilizar o método **userLogin**.
+Para realizar o login é necessário criar um objeto **User**, preenche-lo com **Email**, **Password** e **Hash**. 
+Logo após, é necessário instanciar a classe **UserRequest** e passar o objeto **User** (previamente criado) ao método **userLogin**.
+
+### Vejamos um exemplo abaixo
 
 ```Javascript
 
@@ -51,7 +56,7 @@ import {User, UserRequest, Environment} from 'soulpay-sdk'
 const user = new User()
 user.email = 'testedev@dev.com'
 user.password = 'testeDev'
-user.hash = '2b1ba7b7a8ce5c1a003935625bf40047'
+user.hash = 'Seu hash aqui'
 
 const userRequest = new UserRequest(Environment.DEVELOPMENT)
 const apiResponse = await userRequest.userLogin(user)
@@ -59,11 +64,10 @@ const apiResponse = await userRequest.userLogin(user)
 
 ## Refresh Token
 
-Para utilizar a API é necessário ter um token JWT valido, caso o token esteja expirando é possível gerar um novo token. Caso o token já tenha expirado realizar um novo login.
+Para que não seja necessário fazer login sempre que seu token JWT expirar, criamos o método **refreshToken** para facilitação do processo.
 
-Para gerar um novo token é necessário ter o **Refresh Token** adquirido ao realizar o login para colocado na classe **RefreshToken**, e também é necessário passar o token JWT como segundo parâmetro da **UserRequest**.
-
-Apartir disso basta chamar o metodo **refreshToken** da sua instancia de **UserRequest** passando a instancia da classe **RefreshToken** com seu **Refresh Token** atribuido a ela.
+Para realizar a atualização de seu token é necessário criar um objeto **refreshToken** e preenche-lo com seu refreshToken.
+Logo após, é necessário instanciar a classe **UserRequest** e passar o objeto **refreshToken** (previamente criado) ao método **refreshToken**.
 
 ```Javascript
 import { RefreshToken, UserRequest, Environment } from 'soulpay-sdk'
@@ -83,9 +87,7 @@ const apiResponse = await userRequest.refreshToken(refreshToken)
 
 Se por algum motivo for necessário gerar um novo **Refresh Token** essa função está disponivel na API.
 
-O processo é exatamente o mesmo da funcionalidade de **Refresh Token** já explicada acima,basta ter seu **Refresh Token** atual e um token JWT ainda valido.
-
-Só que ao invés de usar o metodo **refreshToken** use o metodo **newRefreshToken**.
+O processo é exatamente o mesmo da funcionalidade de **Refresh Token** já explicada acima, basta ter seu **Refresh Token** atual e um token JWT ainda valido. Porém, ao invés de usar o metodo **refreshToken** use o metodo **newRefreshToken**.
 
 ```Javascript
 import { RefreshToken, UserRequest, Environment } from 'soulpay-sdk'
@@ -101,15 +103,16 @@ const userRequest = new UserRequest(
 const apiResponse = await userRequest.newRefreshToken(refreshToken)
 ```
 
-## Criando um Transação
+## Criando uma Transação
 
 Para criar uma transação é necessário preencher as informações obrigatórias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
 
-Seguindo a mesma ideia de login é necessário instanciar os models da transação, sendo esses **Customer**, **Billing**, **Shipping**, **CreditCard**, **CreditInstallment**, **Payment**, **Transaction**. Para enviar a transação é necessário instanciar **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
+Seguindo a mesma ideia de login, é necessário instanciar os models da transação, sendo esses **Customer**, **Billing**, **Shipping**, **CreditCard**, **CreditInstallment**, **Payment**, **Transaction**.  
+Para enviar a transação é necessário instanciar **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
 
-Usuando a instancia de **OrderRequest** basta usar o método **transaction**  passando a instancia preenchida de **Transaction**
+Usuando a instancia de **OrderRequest** basta usar o método **transaction**  passando a instancia preenchida de **Transaction**.
+
 ``` Javascript
-
 import {
   Customer,
   Billing,
@@ -121,6 +124,7 @@ import {
   OrderRequest,
   Environment
 } from 'soulpay-sdk'
+
 const customer = new Customer()
 customer.id = 1
 customer.name = 'Luke Skywalker'
@@ -188,12 +192,14 @@ const orderRequest = new OrderRequest(
   Environment.DEVELOPMENT,
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3ODUwMzc5MiwiZXhwIjoxNTgxMDk1NzkyfQ.wwSNY5KD08xBjPRykNe98Xn_6IzuY4qgYykrlanqF3E'
 )
+
 const apiResponse = await orderRequest.transaction(transaction)
 
 ```
+
 ## Criando uma Recorrência
 
-Para criar uma recorrência é necessário preencher as informações obrigatórias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
+Para criar uma recorrência, é necessário preencher as informações obrigatórias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
 
 Seguindo a mesma ideia de transação é necessário instanciar os models da recorrência, sendo esses **Customer**, **Billing**, **Shipping**, **CreditCard**, **Recurring**, **CreditInstallment**, **Payment**, **Recurrence**. Para enviar a recorrência é necessário instanciar **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
 
@@ -212,6 +218,7 @@ import {
   OrderRequest,
   Environment
 } from 'soulpay-sdk'
+
 const customer = new Customer()
 customer.id = 1
 customer.name = 'Luke Skywalker'
@@ -290,15 +297,17 @@ const orderRequest = new OrderRequest(
 )
 
 const apiResponse = await orderRequest.recurrence(transaction)
+
 ```
 
 ## Gerando Boleto Bancario
 
-Para criar uma boleto é necessário preencher as informações obrigatorias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
+Para criar um boleto é necessário preencher as informações obrigatorias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
 
-Seguindo a mesma ideia de transção é necessário instanciar os models da boleto, sendo esses **Customer**, **Billing**, **BankSlipPayment**, **Payment**, **BankSlip**. Para enviar o Boleto Bancario é necessário instanciar **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
+Seguindo a mesma ideia de transação é necessário instanciar os models de boleto, sendo esses **Customer**, **Billing**, **BankSlipPayment**, **Payment**, **BankSlip**.  
+Para enviar o Boleto Bancario é necessário instanciar **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
 
-Usuando a instancia de **OrderRequest** basta usar o método **bankSlip**  passando a instancia preenchida de **BankSlip**
+Usuando a instancia de **OrderRequest** basta usar o método **bankSlip**  passando a instancia preenchida de **BankSlip**.
 
 ```Javascript
     import {
@@ -348,9 +357,10 @@ const orderRequest = new OrderRequest(
 const apiResponse = await orderRequest.bankSlip(bankSlip)
     
 ```
+
 ## Consultar Transações
 
-Para consultar a uma transação é necessário instanciar a classe **OrderRequest** e chamar o metodo get do tipo de order que é desejado consultar como no exemplo abaixo para recorrencia, deve se passar o **Order ID** como parâmetro de busca.
+Para consultar uma transação, é necessário instanciar a classe **OrderRequest** e chamar o metodo get do tipo de order que é desejado consultar como no exemplo abaixo para recorrencia, deve se passar o **Order ID** como parâmetro de busca.
 
 ```Javascript
 
@@ -365,6 +375,6 @@ const apiResponse = await orderRequest.getRecurrence(55)
 
 ```
 
-## Supporte
+## Suporte
 
-[Utilizar o issues do github](https://github.com/Soulpay/JsSDK/issues)
+[Utilizar o issues do github](https://github.com/Soulpay/js-sdk/issues)
