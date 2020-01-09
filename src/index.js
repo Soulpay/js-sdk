@@ -33,3 +33,22 @@ export {
   User,
   Environment
 }
+
+module.exports = {
+  OrderRequest: OrderRequest,
+  UserRequest: UserRequest,
+  Recurrence: Recurrence,
+  Recurring: Recurring,
+  RefreshToken: RefreshToken,
+  Transaction: Transaction,
+  BankSlip: BankSlip,
+  BankSlipPayment: BankSlipPayment,
+  Billing: Billing,
+  Shipping: Shipping,
+  CreditCard: CreditCard,
+  Payment: Payment,
+  CreditInstallment: CreditInstallment,
+  Customer: Customer,
+  User: User,
+  Environment: Environment
+}
