@@ -6,7 +6,7 @@
 Este documento explica realizar a integração com a API de E-Commerce
  para começar a realizar transações.
 
-Este documento descreve o **SKD
+Este documento descreve o **SDK
  em Javascript** utilizado para nossa API.
 
 ## Requerimentos
@@ -19,7 +19,7 @@ Este documento descreve o **SKD
 Para utilizar este SDK
  recomenda-se leitura da [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html)
  
-A API é capaz de realizar transações de **cartão de crédito**; geração de **boletos**; e **recorrências** diárias, semanais, e mensais.
+A API é capaz de realizar transações de **cartão de crédito**, geração de **boletos** e **recorrências** diárias, semanais, e mensais.
 
 ## Ambientes
 
