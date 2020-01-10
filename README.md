@@ -25,7 +25,7 @@ Para utilizar este SDK
  
 A API é capaz de realizar transações de **cartão de crédito**, geração de **boletos** e **recorrências** diárias, semanais, mensais ou outras escolhas de período.
 
-##CommonJs
+## CommonJs
 
 Embora os exemplos estejam usuando o **import do es6** nossa sdk é híbrida,portanto é possível utilizar o **require do CommonJs**.
 
