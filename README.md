@@ -25,6 +25,15 @@ Para utilizar este SDK
  
 A API é capaz de realizar transações de **cartão de crédito**, geração de **boletos** e **recorrências** diárias, semanais, mensais ou outras escolhas de período.
 
+##CommonJs
+
+Embora os exemplos estejam usuando o **import do es6** nossa sdk é híbrida,portanto é possível utilizar o **require do CommonJs**.
+
+```Javascript
+//require para usuários em CommonJs
+const soulpay = require('soulpay-sdk')
+```
+
 ## Ambientes
 
 Para fazer a escolha de qual **Environment** utilizar basta declará-lo no construtor das classes de **Request**
