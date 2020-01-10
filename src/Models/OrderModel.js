@@ -5,4 +5,4 @@ const OrderModel = {
     _payment: 'payment',
     _metaData: 'metaData'
 }
-export default OrderModel
+module.exports = OrderModel

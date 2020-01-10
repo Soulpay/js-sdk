@@ -1,5 +1,5 @@
-import Order from './Order.js'
-import RecurrenceModel from '../../Models/RecurrenceModel.js'
+const Order = require('./Order')
+const RecurrenceModel = require('../../Models/RecurrenceModel')
 class Recurrence extends Order {
   constructor ({
     referenceNum = null,
@@ -57,4 +57,4 @@ class Recurrence extends Order {
     this._recurring = recurring.toJson()
   }
 }
-export default Recurrence
+module.exports = Recurrence

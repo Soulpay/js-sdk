@@ -1,4 +1,4 @@
-import CreditCardModel from '../../Models/CreditCardModel.js'
+const CreditCardModel = require('../../Models/CreditCardModel')
 class CreditCard {
   constructor ({
     cardHolderName = null,
@@ -55,4 +55,4 @@ class CreditCard {
     this._cvvNumber = cvvNumber
   }
 }
-export default CreditCard
+module.exports = CreditCard

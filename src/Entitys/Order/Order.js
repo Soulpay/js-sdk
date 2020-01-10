@@ -1,4 +1,4 @@
-import OrderModel from '../../Models/OrderModel.js'
+const OrderModel = require('../../Models/OrderModel')
 class Order {
   constructor ({
     referenceNum = null,
@@ -65,4 +65,4 @@ class Order {
     this._metaData = metaData
   }
 }
-export default Order
+module.exports = Order

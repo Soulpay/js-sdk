@@ -1,5 +1,5 @@
-import Address from './Address.js'
-import billingModel from '../../Models/BillingModel.js'
+const Address = require('./Address')
+const billingModel = require('../../Models/BillingModel')
 class Billing extends Address {
   toJson () {
     const address = this
@@ -12,4 +12,4 @@ class Billing extends Address {
     return JsonObject
   }
 }
-export default Billing
+module.exports = Billing

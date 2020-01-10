@@ -1,4 +1,4 @@
-import BankSlipModel from '../../Models/BankSlipPayment.js'
+const BankSlipModel = require('../../Models/BankSlipPayment')
 class BankSlip {
   constructor ({ expirationDate = null, instructions = null } = {}) {
     this._expirationDate = expirationDate
@@ -32,4 +32,4 @@ class BankSlip {
     this._instructions = instructions
   }
 }
-export default BankSlip
+module.exports = BankSlip

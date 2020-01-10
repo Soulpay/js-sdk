@@ -1,7 +1,7 @@
-import Order from './OrderModel.js'
+const Order = require('./OrderModel')
 const transactionModel = {
   _shipping: 'shipping',
   _creditCard: 'creditCard',
   ...Order
 }
-export default  transactionModel
+module.exports = transactionModel

@@ -11,4 +11,4 @@ const customerModel = {
   _new: 'new',
   _vip: 'vip'
 }
-export default customerModel
+module.exports = customerModel

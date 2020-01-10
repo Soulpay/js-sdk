@@ -1,6 +1,6 @@
-import Order from './OrderModel.js'
+const Order = require('./OrderModel')
 const BankSlip = {
     _bankSlip: 'bankSlip',
     ...Order
 }
-export default BankSlip
+module.exports = BankSlip
