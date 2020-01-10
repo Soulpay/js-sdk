@@ -1,5 +1,5 @@
-import AbstractRequest from './AbstractRequest.js'
-import Axios from 'axios'
+const AbstractRequest = require('./AbstractRequest')
+const Axios = require('axios')
 
 class Request extends AbstractRequest {
   async post (url, data) {
@@ -14,4 +14,4 @@ class Request extends AbstractRequest {
   }
 }
 
-export default Request
+module.exports = Request

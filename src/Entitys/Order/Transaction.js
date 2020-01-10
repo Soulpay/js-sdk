@@ -1,5 +1,5 @@
-import Order from './Order.js'
-import TransactionModel from '../../Models/TransactionModel.js'
+const Order = require('./Order')
+const TransactionModel = require('../../Models/TransactionModel')
 class Transaction extends Order {
   constructor ({
     referenceNum = null,
@@ -48,4 +48,4 @@ class Transaction extends Order {
     this._creditCard = creditCard.toJson()
   }
 }
-export default Transaction
+module.exports = Transaction

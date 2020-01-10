@@ -1,5 +1,5 @@
-import Order from './Order.js'
-import BankSlipModel from '../../Models/BankSlipModel.js'
+const Order = require('./Order')
+const BankSlipModel = require('../../Models/BankSlipModel')
 class BankSlip extends Order {
   constructor ({
     referenceNum = null,
@@ -38,4 +38,4 @@ class BankSlip extends Order {
     this._bankSlip = bankSlip.toJson()
   }
 }
-export default BankSlip
+module.exports = BankSlip

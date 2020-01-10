@@ -10,4 +10,4 @@ class AbstractRequest {
   async delete (url) {}
 }
 
-export default AbstractRequest
+module.exports = AbstractRequest

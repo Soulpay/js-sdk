@@ -1,4 +1,4 @@
-import Request from './Request.js'
+const Request = require('./Request')
 let url
 
 class OrderRequest extends Request {
@@ -57,4 +57,4 @@ class OrderRequest extends Request {
   }
 }
 
-export default OrderRequest
+module.exports = OrderRequest

@@ -3,4 +3,4 @@ const paymentModel = {
   _currencyCode: 'currencyCode',
   _creditInstallment: 'creditInstallment'
 }
-export default paymentModel
+module.exports = paymentModel

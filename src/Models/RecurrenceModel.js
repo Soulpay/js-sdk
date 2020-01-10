@@ -1,8 +1,8 @@
-import Order from './OrderModel.js'
+const Order = require('./OrderModel')
 const RecurrenceModel = {
   _shipping: 'shipping',
   _creditCard: 'creditCard',
   _recurring: 'recurring',
   ...Order
 }
-export default RecurrenceModel
+module.exports = RecurrenceModel

@@ -1,4 +1,4 @@
-import Request from './Request.js'
+const Request = require('./Request')
 
 let url
 class UserRequest extends Request {
@@ -31,4 +31,4 @@ class UserRequest extends Request {
     )
   }
 }
-export default UserRequest
+module.exports = UserRequest

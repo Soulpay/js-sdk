@@ -4,4 +4,4 @@ const creditCardModel = {
   _expDate: 'expDate',
   _cvvNumber: 'cvvNumber'
 }
-export default creditCardModel
+module.exports = creditCardModel

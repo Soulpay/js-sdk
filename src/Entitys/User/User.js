@@ -1,4 +1,4 @@
-import userModel from '../../Models/UserModel.js'
+const userModel = require('../../Models/UserModel')
 
 class User {
   constructor ({ email = null, password = null, hash = null } = {}) {
@@ -42,4 +42,4 @@ class User {
     this._hash = hash
   }
 }
-export default User
+module.exports = User

@@ -1,4 +1,4 @@
-import RecurringModel from '../../Models/RecurringModel.js'
+const RecurringModel = require('../../Models/RecurringModel')
 class Recurring {
   constructor ({
     startDate = null,
@@ -75,4 +75,4 @@ class Recurring {
   }
 }
 
-export default Recurring
+module.exports = Recurring

@@ -10,4 +10,4 @@ const billingModel = {
   _phone: 'phone',
   _email: 'email'
 }
-export default billingModel
+module.exports = billingModel

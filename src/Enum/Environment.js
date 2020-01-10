@@ -3,4 +3,4 @@ const environment = Object.freeze({
     PRODUCTION: true
 })
 
-export default environment
+module.exports = environment

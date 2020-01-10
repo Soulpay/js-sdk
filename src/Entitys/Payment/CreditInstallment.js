@@ -1,4 +1,4 @@
-import CreditInstallmentModel from '../../Models/CreditInstallmentModel.js'
+const CreditInstallmentModel = require('../../Models/CreditInstallmentModel')
 class CreditInstallment {
   constructor ({ numberOfInstallments = null, chargeInterest = null } = {}) {
     this._numberOfInstallments = numberOfInstallments
@@ -32,4 +32,4 @@ class CreditInstallment {
     this._chargeInterest = chargeInterest
   }
 }
-export default CreditInstallment
+module.exports = CreditInstallment

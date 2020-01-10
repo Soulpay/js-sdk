@@ -1,4 +1,4 @@
-import PaymentModel from '../../Models/PaymentModel.js'
+const PaymentModel = require('../../Models/PaymentModel')
 class Payment {
   constructor ({
     chargeTotal = null,
@@ -45,4 +45,4 @@ class Payment {
     this._creditInstallment = creditInstallment.toJson()
   }
 }
-export default Payment
+module.exports = Payment

@@ -1,4 +1,4 @@
-import CustomerModel from '../../Models/CustomerModel.js'
+const CustomerModel = require('../../Models/CustomerModel')
 class Customer {
   constructor ({
     id = null,
@@ -125,4 +125,4 @@ class Customer {
     this._vip = vip == 'true'
   }
 }
-export default Customer
+module.exports = Customer

@@ -1,5 +1,5 @@
-import Address from './Address.js'
-import ShippingModel from '../../Models/ShippingModel.js'
+const Address = require('./Address')
+const ShippingModel = require('../../Models/ShippingModel')
 class Shipping extends Address {
   toJson () {
     const address = this
@@ -12,4 +12,4 @@ class Shipping extends Address {
     return JsonObject
   }
 }
-export default Shipping
+module.exports = Address

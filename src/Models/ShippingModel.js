@@ -10,4 +10,4 @@ const shippingModel = {
   _phone: 'phone',
   _email: 'email'
 }
-export default shippingModel
+module.exports = shippingModel

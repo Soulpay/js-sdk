@@ -1,4 +1,4 @@
-import refreshTokenModel from '../../Models/RefreshTokenModel.js'
+const refreshTokenModel = require('../../Models/RefreshTokenModel')
 class RefreshToken {
   constructor ({ refreshToken = null } = {}) {
     this._refreshToken = refreshToken
@@ -23,4 +23,4 @@ class RefreshToken {
     this._refreshToken = refreshToken
   }
 }
-export default RefreshToken
+module.exports = RefreshToken
