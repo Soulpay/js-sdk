@@ -1,13 +1,11 @@
 {
   "name": "soulpay-sdk",
-  "version": "1.3.1",
+  "version": "1.3.7",
   "description": "A sdk for mercury api",
   "main": "src/index.js",
+  "type": "commonjs",
   "exports": {
-    ".": {
-      "require":  "src/index.js",
-      "default": "src/index.mjs"
-    }
+      "./esm": "./src/index.mjs"
   },
   "module": "src/index.mjs",
   

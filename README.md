@@ -31,7 +31,15 @@ Embora os exemplos estejam usuando o **import do es6** nossa sdk é híbrida,por
 
 ```Javascript
 //require para usuários em CommonJs
-const soulpay = require('soulpay-sdk')
+const {User, UserRequest, Environment} = require('soulpay-sdk')
+
+const user = new User()
+user.email = 'testedev@dev.com'
+user.password = 'testeDev'
+user.hash = 'Seu hash aqui'
+
+const userRequest = new UserRequest(Environment.DEVELOPMENT)
+const apiResponse = await userRequest.userLogin(user)
 ```
 
 ## Ambientes
@@ -60,7 +68,7 @@ Logo após, é necessário instanciar a classe **UserRequest** e passar o objeto
 
 ```Javascript
 
-import {User, UserRequest, Environment} from 'soulpay-sdk'
+import {User, UserRequest, Environment} from 'soulpay-sdk/esm'
 
 const user = new User()
 user.email = 'testedev@dev.com'
@@ -79,7 +87,7 @@ Para realizar a atualização de seu token é necessário criar um objeto **refr
 Logo após, é necessário instanciar a classe **UserRequest** e passar o objeto **refreshToken** (previamente criado) ao método **refreshToken**.
 
 ```Javascript
-import { RefreshToken, UserRequest, Environment } from 'soulpay-sdk'
+import { RefreshToken, UserRequest, Environment } from 'soulpay-sdk/esm'
 
 const refreshToken = new RefreshToken()
 refreshToken.refreshToken =
@@ -99,7 +107,7 @@ Se por algum motivo for necessário gerar um novo **Refresh Token** essa funçã
 O processo é exatamente o mesmo da funcionalidade de **Refresh Token** já explicada acima, basta ter seu **Refresh Token** atual e um token JWT ainda valido. Porém, ao invés de usar o metodo **refreshToken** use o metodo **newRefreshToken**.
 
 ```Javascript
-import { RefreshToken, UserRequest, Environment } from 'soulpay-sdk'
+import { RefreshToken, UserRequest, Environment } from 'soulpay-sdk/esm'
 
 const refreshToken = new RefreshToken()
 refreshToken.refreshToken =
@@ -132,7 +140,7 @@ import {
   Transaction,
   OrderRequest,
   Environment
-} from 'soulpay-sdk'
+} from 'soulpay-sdk/esm'
 
 const customer = new Customer()
 customer.id = 1
@@ -226,7 +234,7 @@ import {
   Recurring,
   OrderRequest,
   Environment
-} from 'soulpay-sdk'
+} from 'soulpay-sdk/esm'
 
 const customer = new Customer()
 customer.id = 1
@@ -327,7 +335,7 @@ Usuando a instancia de **OrderRequest** basta usar o método **bankSlip**  passa
   Payment,
   OrderRequest,
   Environment
-} from 'soulpay-sdk'
+} from 'soulpay-sdk/esm'
 
 const customer = new Customer()
 customer.name = 'Bilbo Bolseiro'
