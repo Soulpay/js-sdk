@@ -8,7 +8,7 @@ utilizando nosso **SDK em Javascript** para começar a realizar transações.
 
 ## Requerimentos
 
-- Node >= 13.2.0
+- Node >= 12.14.0
 
 ## Instalação com NPM
 
