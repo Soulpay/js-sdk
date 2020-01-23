@@ -1,5 +1,6 @@
 const customerModel = {
   _id: 'id',
+  _visitor: 'visitor',
   _name: 'name',
   _email: 'email',
   _dob: 'dob',

@@ -3,6 +3,7 @@ class Customer {
   constructor ({
     id = null,
     name = null,
+    visitor = null,
     email = null,
     dob = null,
     ipAddress = null,
@@ -15,6 +16,7 @@ class Customer {
   } = {}) {
     this._id = id
     this._name = name
+    this._visitor = visitor
     this._email = email
     this._dob = dob
     this._ipAddress = ipAddress
@@ -51,6 +53,14 @@ class Customer {
 
   set name (name) {
     this._name = name
+  }
+
+  get visitor () {
+    return this._visitor
+  }
+
+  set visitor () {
+    this._visitor = visitor
   }
 
   get email () {
