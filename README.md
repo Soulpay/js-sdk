@@ -145,6 +145,7 @@ import {
 const customer = new Customer()
 customer.id = 1
 customer.name = 'Luke Skywalker'
+customer.visitor = 'visitor gerado pelo js'
 customer.email = 'daddysavior@rebelion.com'
 customer.dob = '1977-11-18'
 customer.ipAddress = '111.222.0.10'
@@ -239,6 +240,7 @@ import {
 const customer = new Customer()
 customer.id = 1
 customer.name = 'Luke Skywalker'
+customer.visitor = 'visitor gerado pelo js'
 customer.email = 'daddysavior@rebelion.com'
 customer.dob = '1977-11-18'
 customer.ipAddress = '111.222.0.10'
@@ -339,6 +341,7 @@ Usuando a instancia de **OrderRequest** basta usar o método **bankSlip**  passa
 
 const customer = new Customer()
 customer.name = 'Bilbo Bolseiro'
+customer.visitor = 'visitor gerado pelo js'
 customer.taxId = '85673917295'
 
 const billing = new Billing()
