@@ -43,6 +43,13 @@ class OrderRequest extends Request {
     )
   }
 
+  async editRecurrence (recurrence) {
+    return super.put(
+      url+'recurrence',
+      recurrence.toJson()
+    )
+  }
+
   async transaction (transaction) {
     return super.post(
       url+'transaction',
@@ -55,6 +62,7 @@ class OrderRequest extends Request {
       url+`transaction/${orderId}`
     )
   }
+
 }
 
 module.exports = OrderRequest

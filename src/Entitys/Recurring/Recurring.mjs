@@ -6,7 +6,9 @@ class Recurring {
     frequency = null,
     installments = null,
     firstAmount = null,
-    failureThreshold = null
+    failureThreshold = null,
+    nextFireDate = null,
+    fireDay = null
   } = {}) {
     this._startDate = startDate
     this._period = period
@@ -14,6 +16,8 @@ class Recurring {
     this._installments = installments
     this._firstAmount = firstAmount
     this._failureThreshold = failureThreshold
+    this._nextFireDate = nextFireDate
+    this._fireDay = fireDay
   }
 
   toJson () {
@@ -72,6 +76,22 @@ class Recurring {
 
   set failureThreshold (failureThreshold) {
     this._failureThreshold = failureThreshold
+  }
+
+  get nextFireDate () {
+    return this._nextFireDate
+  }
+
+  set nextFireDate (nextFireDate) {
+    this._nextFireDate = nextFireDate
+  }
+
+  get fireDay () {
+    return this._fireDay
+  }
+
+  set fireDay (fireDay) {
+    this._fireDay = fireDay
   }
 }
 

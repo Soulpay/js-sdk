@@ -59,7 +59,7 @@ class Customer {
     return this._visitor
   }
 
-  set visitor () {
+  set visitor (visitor) {
     this._visitor = visitor
   }
 

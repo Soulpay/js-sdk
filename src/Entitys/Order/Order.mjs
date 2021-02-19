@@ -1,6 +1,7 @@
 import OrderModel from '../../Models/OrderModel.mjs'
 class Order {
   constructor ({
+    orderId = null,
     referenceNum = null,
     billing = null,
     customer = null,
@@ -8,6 +9,7 @@ class Order {
     metaData = null
   } = {}) {
     ;(this._referenceNum = referenceNum),
+    (this._orderId = orderId),
     (this._billing = billing),
     (this._payment = payment),
     (this._metaData = metaData),
@@ -31,6 +33,14 @@ class Order {
 
   set referenceNum (referenceNum) {
     this._referenceNum = referenceNum
+  }
+  
+  get orderId () {
+    return this._orderId
+  }
+
+  set orderId (orderId) {
+    this._orderId = orderId
   }
 
   get billing () {

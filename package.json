@@ -1,6 +1,6 @@
 {
   "name": "soulpay-sdk",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "description": "A sdk for mercury api",
   "main": "src/index.js",
   "type": "commonjs",

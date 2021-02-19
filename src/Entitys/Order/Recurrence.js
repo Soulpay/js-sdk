@@ -2,6 +2,7 @@ const Order = require('./Order')
 const RecurrenceModel = require('../../Models/RecurrenceModel')
 class Recurrence extends Order {
   constructor ({
+    orderId = null,
     referenceNum = null,
     customer = null,
     billing = null,
@@ -12,6 +13,7 @@ class Recurrence extends Order {
     recurring = null
   } = {}) {
     super({
+      orderId: orderId,
       referenceNum: referenceNum,
       billing: billing,
       customer: customer,

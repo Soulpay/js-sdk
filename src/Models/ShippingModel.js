@@ -5,7 +5,7 @@ const shippingModel = {
   _district: 'district',
   _city: 'city',
   _state: 'state',
-  _postalcode: 'postalcode',
+  _postalCode: 'postalCode',
   _country: 'country',
   _phone: 'phone',
   _email: 'email'

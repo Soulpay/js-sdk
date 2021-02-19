@@ -2,6 +2,7 @@ import Order from './Order.mjs'
 import RecurrenceModel from '../../Models/RecurrenceModel.mjs'
 class Recurrence extends Order {
   constructor ({
+    orderId = null,
     referenceNum = null,
     customer = null,
     billing = null,
@@ -12,6 +13,7 @@ class Recurrence extends Order {
     recurring = null
   } = {}) {
     super({
+      orderId: orderId,
       referenceNum: referenceNum,
       billing: billing,
       customer: customer,

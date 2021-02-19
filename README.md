@@ -315,7 +315,85 @@ const orderRequest = new OrderRequest(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3ODUwMzc5MiwiZXhwIjoxNTgxMDk1NzkyfQ.wwSNY5KD08xBjPRykNe98Xn_6IzuY4qgYykrlanqF3E'
 )
 
-const apiResponse = await orderRequest.recurrence(transaction)
+const apiResponse = await orderRequest.recurrence(recurrence)
+```
+
+## Alterando uma Recorrência
+
+Para alterar uma recorrência, é necessário preencher as informações obrigatórias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
+
+Seguindo a mesma ideia de transação é necessário instanciar os models da edição de recorrência, sendo esses **Billing**, **Shipping**, **CreditCard**, **Recurring**, **Payment**. Para enviar a recorrência é necessário instanciar **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
+
+Usuando a instancia de **OrderRequest** basta usar o método **editRecurrence**  passando a instancia preenchida de **Recurrence**
+
+``` Javascript
+
+
+import {
+  Billing,
+  Shipping,
+  CreditCard,
+  Payment,
+  Recurrence,
+  Recurring,
+  OrderRequest,
+  Environment
+} from 'soulpay-sdk/esm'
+
+const billing = new Billing()
+billing.name = 'Anakin Skywalker',
+billing.address = 'Death Star',
+billing.address2 = '345 setor do laser',
+billing.district = 'Galaxia 6543',
+billing.city = 'Orbita da lua de Endor',
+billing.state = 'ER',
+billing.postalCode = '09999000',
+billing.country = 'EP',
+billing.phone = '1122334455',
+billing.email = 'childkiller@lordvader.com.br'
+
+const shipping = new Shipping()
+shipping.name = 'Anakin Skywalker',
+shipping.address = 'Death Star',
+shipping.address2 = '345 setor do laser',
+shipping.district = 'Galaxia 6543',
+shipping.city = 'Orbita da lua de Endor',
+shipping.state = 'ER',
+shipping.postalCode = '09999000',
+shipping.country = 'EP',
+shipping.phone = '1122334455',
+shipping.email = 'childkiller@lordvader.com.br'
+
+const creditCard = new CreditCard()
+creditCard.cardHolderName = 'Lord Sidius'
+creditCard.number = '5431372610284362'
+creditCard.expDate = '07/2024'
+
+const payment = new Payment()
+payment.chargeTotal = 20.0
+
+const recurring = new Recurring()
+recurring.period = 'monthly'
+recurring.frequency = 1
+recurring.installments = '12'
+recurring.firstAmount = '20.0'
+recurring.nextFireDate = '2021-12-01'
+recurring.fireDay = '20'
+
+const recurrence = new Recurrence()
+recurrence.orderId = '1234'
+recurrence.billing = billing
+recurrence.shipping = shipping
+recurrence.creditCard = creditCard
+recurrence.payment = payment
+recurrence.recurring = recurring
+
+const orderRequest = new OrderRequest(
+  Environment.DEVELOPMENT,
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3ODUwMzc5MiwiZXhwIjoxNTgxMDk1NzkyfQ.wwSNY5KD08xBjPRykNe98Xn_6IzuY4qgYykrlanqF3E'
+)
+
+const apiResponse = await orderRequest.editRecurrence(recurrence)
 
 ```
 
