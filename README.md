@@ -370,13 +370,13 @@ creditCard.number = '5431372610284362'
 creditCard.expDate = '07/2024'
 
 const payment = new Payment()
-payment.chargeTotal = 20.0
+payment.chargeTotal = 120
 
 const recurring = new Recurring()
 recurring.period = 'monthly'
 recurring.frequency = 1
 recurring.installments = '12'
-recurring.firstAmount = '20.0'
+recurring.firstAmount = 10
 recurring.nextFireDate = '2021-12-01'
 recurring.fireDay = '20'
 
