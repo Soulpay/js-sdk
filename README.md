@@ -196,10 +196,10 @@ payment.currencyCode = 'BRL'
 payment.creditInstallment = creditInstallment
 
 const transaction = new Transaction()
-transaction.referenceNum = 'do it'
 transaction.metaData = {
   jedi: 'kill then all'
 }
+transaction.referenceNum = '123456'
 transaction.customer = customer
 transaction.billing = billing
 transaction.shipping = shipping
@@ -230,6 +230,7 @@ import {
   Billing,
   Shipping,
   CreditCard,
+  CreditInstallment,
   Payment,
   Recurrence,
   Recurring,
@@ -299,10 +300,10 @@ recurring.firstAmount = 20.0
 recurring.failureThreshold = 15
 
 const recurrence = new Recurrence()
-recurrence.referenceNum = 'do it'
 recurrence.metaData = {
   jedi: 'kill then all'
 }
+recurrence.referenceNum = '123456'
 recurrence.customer = customer
 recurrence.billing = billing
 recurrence.shipping = shipping
@@ -382,6 +383,7 @@ recurring.fireDay = '20'
 
 const recurrence = new Recurrence()
 recurrence.orderId = '1234'
+recurrence.referenceNum = '123456'
 recurrence.billing = billing
 recurrence.shipping = shipping
 recurrence.creditCard = creditCard
@@ -443,6 +445,7 @@ payment.chargeTotal = 1
 payment.currencyCode = 'BRL'
 
 const bankSlip = new BankSlip()
+bankSlip.referenceNum = '123456'
 bankSlip.customer = customer
 bankSlip.billing = billing
 bankSlip.bankSlip = bankSlipPayment

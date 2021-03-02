@@ -44,7 +44,7 @@ class Customer {
   }
 
   set id (id) {
-    this._id = toString(id)
+    this._id = id.toString()
   }
 
   get name () {
