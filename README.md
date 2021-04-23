@@ -475,6 +475,22 @@ const orderRequest = new OrderRequest(
 const apiResponse = await orderRequest.getRecurrence(55)
 
 ```
+## Consultar transações de uma recorrência
+
+Para consultar transações de uma recorrência, é necessário instanciar a classe **OrderRequest** e chamar o metodo get do tipo de order que é desejado consultar como no exemplo abaixo para recorrencia, deve se passar o **Order ID** como parâmetro de busca.
+
+```Javascript
+
+// Passar o token JWT aqui,junto com o ambiente.
+const orderRequest = new OrderRequest(
+  Environment.DEVELOPMENT,
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3NjA3Mzc2MiwiZXhwIjoxNTc4NjY1NzYyfQ.VjQCmYVwvvQjUEHK-wEZxwlcDQggBicssSfPmtuEawc'
+)
+
+// Order ID
+const apiResponse = await orderRequest.getRecurrenceInstallments(55)
+
+```
 
 ## Suporte
 

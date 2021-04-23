@@ -62,6 +62,13 @@ class OrderRequest extends Request {
       url+`transaction/${orderId}`
     )
   }
+
+  async getRecurrenceInstallments (orderId) {
+    return super.get(
+      url+`recurrence/list/${orderId}`
+    )
+  }
+
 }
 
 export default OrderRequest

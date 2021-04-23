@@ -63,6 +63,12 @@ class OrderRequest extends Request {
     )
   }
 
+  async getRecurrenceInstallments (orderId) {
+    return super.get(
+      url+`recurrence/list/${orderId}`
+    )
+  }
+
 }
 
 module.exports = OrderRequest
