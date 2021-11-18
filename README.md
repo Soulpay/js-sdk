@@ -36,7 +36,6 @@ const {User, UserRequest, Environment} = require('soulpay-sdk')
 const user = new User()
 user.email = 'testedev@dev.com'
 user.password = 'testeDev'
-user.hash = 'Seu hash aqui'
 
 const userRequest = new UserRequest(Environment.DEVELOPMENT)
 const apiResponse = await userRequest.userLogin(user)
@@ -188,17 +187,14 @@ creditCard.cvvNumber = '066'
 
 const creditInstallment = new CreditInstallment()
 creditInstallment.numberOfInstallments = 1
-creditInstallment.chargeInterest = 'N'
+creditInstallment.chargeInterest = 0.5
 
 const payment = new Payment()
-payment.chargeTotal = 20.0
+payment.chargeTotal = 10.5
 payment.currencyCode = 'BRL'
 payment.creditInstallment = creditInstallment
 
 const transaction = new Transaction()
-transaction.metaData = {
-  jedi: 'kill then all'
-}
 transaction.referenceNum = '123456'
 transaction.customer = customer
 transaction.billing = billing
@@ -284,10 +280,10 @@ creditCard.cvvNumber = '066'
 
 const creditInstallment = new CreditInstallment()
 creditInstallment.numberOfInstallments = 1
-creditInstallment.chargeInterest = 'N'
+creditInstallment.chargeInterest = 0.5
 
 const payment = new Payment()
-payment.chargeTotal = 20.0
+payment.chargeTotal = 10.5
 payment.currencyCode = 'BRL'
 payment.creditInstallment = creditInstallment
 
@@ -296,7 +292,7 @@ recurring.startDate = '2020-10-05'
 recurring.period = 'monthly'
 recurring.frequency = 1
 recurring.installments = 12
-recurring.firstAmount = 20.0
+recurring.firstAmount = 20.2
 recurring.failureThreshold = 15
 
 const recurrence = new Recurrence()
@@ -319,83 +315,27 @@ const orderRequest = new OrderRequest(
 const apiResponse = await orderRequest.recurrence(recurrence)
 ```
 
-## Alterando uma Recorrência
+## Ativando/desativando uma Recorrência
 
-Para alterar uma recorrência, é necessário preencher as informações obrigatórias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
+ Na edição de recorrência é necessário instanciar a model **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
 
-Seguindo a mesma ideia de transação é necessário instanciar os models da edição de recorrência, sendo esses **Billing**, **Shipping**, **CreditCard**, **Recurring**, **Payment**. Para enviar a recorrência é necessário instanciar **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
-
-Usuando a instancia de **OrderRequest** basta usar o método **editRecurrence**  passando a instancia preenchida de **Recurrence**
+Usuando a instancia de **OrderRequest** basta usar o método **editRecurrence**  passando a ação a ser executada.
 
 ``` Javascript
 
 
 import {
-  Billing,
-  Shipping,
-  CreditCard,
-  Payment,
-  Recurrence,
-  Recurring,
   OrderRequest,
   Environment
 } from 'soulpay-sdk/esm'
-
-const billing = new Billing()
-billing.name = 'Anakin Skywalker',
-billing.address = 'Death Star',
-billing.address2 = '345 setor do laser',
-billing.district = 'Galaxia 6543',
-billing.city = 'Orbita da lua de Endor',
-billing.state = 'ER',
-billing.postalCode = '09999000',
-billing.country = 'EP',
-billing.phone = '1122334455',
-billing.email = 'childkiller@lordvader.com.br'
-
-const shipping = new Shipping()
-shipping.name = 'Anakin Skywalker',
-shipping.address = 'Death Star',
-shipping.address2 = '345 setor do laser',
-shipping.district = 'Galaxia 6543',
-shipping.city = 'Orbita da lua de Endor',
-shipping.state = 'ER',
-shipping.postalCode = '09999000',
-shipping.country = 'EP',
-shipping.phone = '1122334455',
-shipping.email = 'childkiller@lordvader.com.br'
-
-const creditCard = new CreditCard()
-creditCard.cardHolderName = 'Lord Sidius'
-creditCard.number = '5431372610284362'
-creditCard.expDate = '07/2024'
-
-const payment = new Payment()
-payment.chargeTotal = 120
-
-const recurring = new Recurring()
-recurring.period = 'monthly'
-recurring.frequency = 1
-recurring.installments = '12'
-recurring.firstAmount = 10
-recurring.nextFireDate = '2021-12-01'
-recurring.fireDay = '20'
-
-const recurrence = new Recurrence()
-recurrence.orderId = '1234'
-recurrence.referenceNum = '123456'
-recurrence.billing = billing
-recurrence.shipping = shipping
-recurrence.creditCard = creditCard
-recurrence.payment = payment
-recurrence.recurring = recurring
 
 const orderRequest = new OrderRequest(
   Environment.DEVELOPMENT,
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3ODUwMzc5MiwiZXhwIjoxNTgxMDk1NzkyfQ.wwSNY5KD08xBjPRykNe98Xn_6IzuY4qgYykrlanqF3E'
 )
 
-const apiResponse = await orderRequest.editRecurrence(recurrence)
+//Passar a ação a ser executada: disable | enable
+const apiResponse = await orderRequest.editRecurrence(55, 'disable')
 
 ```
 
@@ -472,12 +412,12 @@ const orderRequest = new OrderRequest(
 )
 
 // Order ID
-const apiResponse = await orderRequest.getRecurrence(55)
+const apiResponse = await orderRequest.getTransaction(55)
 
 ```
-## Consultar transações de uma recorrência
+## Consultar Boletos
 
-Para consultar transações de uma recorrência, é necessário instanciar a classe **OrderRequest** e chamar o metodo get do tipo de order que é desejado consultar como no exemplo abaixo para recorrencia, deve se passar o **Order ID** como parâmetro de busca.
+Para consultar um boleto, é necessário instanciar a classe **OrderRequest** e chamar o metodo get do tipo de order que é desejado consultar como no exemplo abaixo para recorrencia, deve se passar o **Order ID** como parâmetro de busca.
 
 ```Javascript
 
@@ -488,7 +428,23 @@ const orderRequest = new OrderRequest(
 )
 
 // Order ID
-const apiResponse = await orderRequest.getRecurrenceInstallments(55)
+const apiResponse = await orderRequest.getBankSlip(55)
+
+```
+## Consultar recorrências
+
+Para consultar recorrências, é necessário instanciar a classe **OrderRequest** e chamar o metodo get do tipo de order que é desejado consultar como no exemplo abaixo para recorrencia, deve se passar o **Order ID** como parâmetro de busca.
+
+```Javascript
+
+// Passar o token JWT aqui,junto com o ambiente.
+const orderRequest = new OrderRequest(
+  Environment.DEVELOPMENT,
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3NjA3Mzc2MiwiZXhwIjoxNTc4NjY1NzYyfQ.VjQCmYVwvvQjUEHK-wEZxwlcDQggBicssSfPmtuEawc'
+)
+
+// Order ID
+const apiResponse = await orderRequest.getRecurrence(55)
 
 ```
 

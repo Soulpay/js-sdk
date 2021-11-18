@@ -8,7 +8,9 @@ class Request extends AbstractRequest {
   async get (url) {
     return Axios.get(url,{headers:this.headers})
   }
-  async put (url, data) {}
+  async put (url, data) {
+    return Axios.put(url,data,{headers:this.headers})
+  }
   async delete (url) {
     return Axios.delete(url, {headers:this.headers})
   }

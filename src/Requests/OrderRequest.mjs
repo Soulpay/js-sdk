@@ -43,10 +43,10 @@ class OrderRequest extends Request {
     )
   }
 
-  async editRecurrence (recurrence) {
+  async editRecurrence (orderId, status) {
     return super.put(
-      url+'recurrence',
-      recurrence.toJson()
+      url+`recurrence/${orderId}`,
+      {status: status}
     )
   }
 

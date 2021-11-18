@@ -1,3 +1,4 @@
+const billingModel = require('../../Models/BillingModel')
 class Address {
   constructor ({
     name = null,
@@ -24,7 +25,14 @@ class Address {
   }
 
   toJson () {
-    throw Error('NOT IMPLEMENTED')
+    const address = this
+    const JsonObject = {}
+    Object.keys(address).map(key =>{
+        if(address[key]){
+            JsonObject[billingModel[key]] = address[key]
+        }
+    })
+    return JsonObject
   }
 
   get name () {
@@ -61,7 +69,7 @@ class Address {
 
   get district () {
     return this._district
-  }  
+  }
 
   set district (district) {
     this._district = district

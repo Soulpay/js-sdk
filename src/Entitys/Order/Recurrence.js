@@ -10,7 +10,8 @@ class Recurrence extends Order {
     creditCard = null,
     payment = null,
     metaData = null,
-    recurring = null
+    recurring = null,
+    status = null
   } = {}) {
     super({
       orderId: orderId,
@@ -18,7 +19,8 @@ class Recurrence extends Order {
       billing: billing,
       customer: customer,
       metaData: metaData,
-      payment: payment
+      payment: payment,
+      status: status
     })
     this._shipping = shipping
     this._creditCard = creditCard
