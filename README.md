@@ -78,47 +78,6 @@ const userRequest = new UserRequest(Environment.DEVELOPMENT)
 const apiResponse = await userRequest.userLogin(user)
 ```
 
-## Refresh Token
-
-Para que não seja necessário fazer login sempre que seu token JWT expirar, criamos o método **refreshToken** para facilitação do processo.
-
-Para realizar a atualização de seu token é necessário criar um objeto **refreshToken** e preenche-lo com seu refreshToken.
-Logo após, é necessário instanciar a classe **UserRequest** e passar o objeto **refreshToken** (previamente criado) ao método **refreshToken**.
-
-```Javascript
-import { RefreshToken, UserRequest, Environment } from 'soulpay-sdk/esm'
-
-const refreshToken = new RefreshToken()
-refreshToken.refreshToken =
-  'b2a86d96695a81fb46498952b7c5406a0jFshZCaYf9+kbCEoQOiRHWjSZGJA4StqgFOvmr95yWmaKRijqcg4AYJ3AIbyaAj'
-
-const userRequest = new UserRequest(
-  Environment.DEVELOPMENT,
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3NjA3Mzc2MiwiZXhwIjoxNTc4NjY1NzYyfQ.VjQCmYVwvvQjUEHK-wEZxwlcDQggBicssSfPmtuEawc'
-)
-const apiResponse = await userRequest.refreshToken(refreshToken)
-```
-
-## Gerar Novo Refresh Token
-
-Se por algum motivo for necessário gerar um novo **Refresh Token** essa função está disponivel na API.
-
-O processo é exatamente o mesmo da funcionalidade de **Refresh Token** já explicada acima, basta ter seu **Refresh Token** atual e um token JWT ainda valido. Porém, ao invés de usar o metodo **refreshToken** use o metodo **newRefreshToken**.
-
-```Javascript
-import { RefreshToken, UserRequest, Environment } from 'soulpay-sdk/esm'
-
-const refreshToken = new RefreshToken()
-refreshToken.refreshToken =
-  'b2a86d96695a81fb46498952b7c5406a0jFshZCaYf9+kbCEoQOiRHWjSZGJA4StqgFOvmr95yWmaKRijqcg4AYJ3AIbyaAj'
-
-const userRequest = new UserRequest(
-  Environment.DEVELOPMENT,
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTU3NjA3Mzc2MiwiZXhwIjoxNTc4NjY1NzYyfQ.VjQCmYVwvvQjUEHK-wEZxwlcDQggBicssSfPmtuEawc'
-)
-const apiResponse = await userRequest.newRefreshToken(refreshToken)
-```
-
 ## Criando uma Transação
 
 Para criar uma transação é necessário preencher as informações obrigatórias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
