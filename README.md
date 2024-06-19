@@ -101,18 +101,10 @@ import {
 } from 'soulpay-sdk/esm'
 
 const customer = new Customer()
-customer.id = 1
 customer.name = 'Luke Skywalker'
-customer.visitor = 'visitor gerado pelo js'
 customer.email = 'daddysavior@rebelion.com'
 customer.dob = '1977-11-18'
-customer.ipAddress = '111.222.0.10'
 customer.taxId = '86587529875'
-customer.phone1 = '+55 11 98563256'
-customer.phone2 = '+55 11 942568223'
-customer.createdAt = '2019-11-15'
-customer.newCustomer = 'true'
-customer.vip = 'false'
 
 const billing = new Billing()
 billing.name = 'Anakin Skywalker',
@@ -172,7 +164,6 @@ const apiResponse = await orderRequest.transaction(transaction)
 
 ## Criando uma Recorrência
 
-Para criar uma recorrência, é necessário preencher as informações obrigatórias descritas na [documentação](https://doc-api.portalsoulpay.com.br/docs/howTo.html).
 
 Seguindo a mesma ideia de transação é necessário instanciar os models da recorrência, sendo esses **Customer**, **Billing**, **Shipping**, **CreditCard**, **Recurring**, **CreditInstallment**, **Payment**, **Recurrence**. Para enviar a recorrência é necessário instanciar **OrderRequest** onde o Environment deve ser passado como primeiro parâmetro e o token JWT deve ser passado como segundo parâmetro.
 
@@ -194,18 +185,11 @@ import {
 } from 'soulpay-sdk/esm'
 
 const customer = new Customer()
-customer.id = 1
+
 customer.name = 'Luke Skywalker'
-customer.visitor = 'visitor gerado pelo js'
 customer.email = 'daddysavior@rebelion.com'
 customer.dob = '1977-11-18'
-customer.ipAddress = '111.222.0.10'
 customer.taxId = '86587529875'
-customer.phone1 = '+55 11 98563256'
-customer.phone2 = '+55 11 942568223'
-customer.createdAt = '2019-11-15'
-customer.newCustomer = 'true'
-customer.vip = 'false'
 
 const billing = new Billing()
 billing.name = 'Anakin Skywalker',
